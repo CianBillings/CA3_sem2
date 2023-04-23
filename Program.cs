@@ -4,50 +4,52 @@ namespace CA3_sem2
 {
     internal class Program
     {
+        
         static void Main(string[] args)
         {
-            Menu();
-        }
-        static private void Menu()
-        {
+            string filepath = @"C:\Users\billy\OneDrive - Atlantic TU\my programs\CA3_sem2\faminefile.csv";
+            string[] Options = { "Ship Reports", "Occupation Reports", "Age Reports", "Exit" };
+            Menu a = new Menu(Options);
             Console.WriteLine("Main Menu");
-            Console.WriteLine("============");
-            Console.WriteLine("1. Ship Reports");
-            Console.WriteLine("2. Occupation Report");
-            Console.WriteLine("3. Age Report");
-            Console.WriteLine("4. Exit");
-            Console.Write("Please enter choice : ");
-            int menuchoice = int.Parse(Console.ReadLine());
+            Console.WriteLine("=====================");
+            int inputChoice = a.GetChoice();
 
-            if (menuchoice == 1)
+            while (inputChoice != Options.Length)
             {
-                ShipReports();
-            }
+                switch (inputChoice)
+                {
+                    case 1:
+                        Console.WriteLine("Ship Reports: ");
+                        Console.WriteLine("==============");
+                        ShipReports(filepath);
+                        break;
 
-            else if (menuchoice == 2)
-            {
-                OccupationReport();
-            }
+                    case 2:
+                        Console.WriteLine("Occupation Report");
+                        OccupationReport();
+                        break;
 
-            else if (menuchoice == 3)
-            {
-                AgeReport();
-            }
+                    case 3:
+                        Console.WriteLine("Age Report");
+                        AgeReport();
+                        break;
 
-            else if (menuchoice == 4)
-            {
-                Exit();
-            }
+                    case 4:
+                        Console.WriteLine("Exit Program");
+                        Exit();
+                        break;
 
-            else
-            {
-                Console.WriteLine("Invalid Entry");
+                    default:
+                        Console.WriteLine("Invalid Choice, please enter one of the choices numbered 1-4");
+                        break;
+                }
             }
-
+            
+       
         }
-        static private void ShipReports()
+        static void ShipReports(string filepath)
         {
-
+            string[] shipReprt = { };
         }
         static private void OccupationReport()
         {
