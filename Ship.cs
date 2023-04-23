@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace CA3_sem2
 {
-    internal class Ship
     {
 
         public class Passengerinfo
