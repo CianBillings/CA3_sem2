@@ -11,8 +11,6 @@ namespace CA3_sem2
             string filepath = @"C:\Users\billy\OneDrive - Atlantic TU\my programs\CA3_sem2\faminefile.csv";
             string[] Options = { "Ship Reports", "Occupation Reports", "Age Reports", "Exit" };
             Menu a = new Menu(Options);
-            Console.WriteLine("Main Menu");
-            Console.WriteLine("=====================");
             int inputChoice = a.GetChoice();
 
             while (inputChoice != Options.Length)
@@ -20,8 +18,6 @@ namespace CA3_sem2
                 switch (inputChoice)
                 {
                     case 1:
-                        Console.WriteLine("Ship Reports: ");
-                        Console.WriteLine("==============");
                         ShipReports();
                         break;
 
@@ -66,17 +62,20 @@ namespace CA3_sem2
                 }
                 return passengers;
             }
-
-            static void ShipReports()
+        }
+            static private void ShipReports()
             {
                 string filepath = @"C:\Users\billy\OneDrive - Atlantic TU\my programs\CA3_sem2\faminefile.csv";
                 List<Passengerinfo> passengers = fileinfo(filepath);
-
+                int i = 0;
+                string[] shipOptions = { "Mary Harrington", "Lincoln", "Clare", "Disbatch" };
+                Menu b = new Menu(shipOptions);
+                int inputChoice = b.GetChoice();
+                                
             }
             static void OccupationReport()
             {
                 string filepath = @"C:\Users\billy\OneDrive - Atlantic TU\my programs\CA3_sem2\faminefile.csv";
-
                 int spinster = 0;
                 int cultivatorAndFarmer = 0;
                 int matron = 0;
@@ -127,7 +126,40 @@ namespace CA3_sem2
                         { mason++; }
                         else if (lineIn.Contains("Baker or Macaroni Maker"))
                         { baker++; }
-                    }
+                        else if (lineIn.Contains("Tanner or Gerber"))
+                        { tanner++; }
+                        else if (lineIn.Contains("Infant"))
+                        { infant++; }
+                        else if (lineIn.Contains("Carpenter"))
+                        { carpenter++; }
+                        else if (lineIn.Contains("Student"))
+                        { student++; }
+                        else if (lineIn.Contains("Clerk"))
+                        { clerk++; }
+                        else if (lineIn.Contains("Coachman/Coach Driver or Driver"))
+                        { coachman++; }
+                        else if (lineIn.Contains("immigrant"))
+                        { immigrant++; }
+
+                    Console.WriteLine($"The number of passengers who are spinsters : {spinster}");
+                    Console.WriteLine($"The number of passengers who are Cultivator or Farmers : {cultivatorAndFarmer}");
+                    Console.WriteLine($"The number of passengers who are Matrons : {matron}");
+                    Console.WriteLine($"The number of passengers who are Dressmakers : {dressMaker}");
+                    Console.WriteLine($"The number of passengers who are Laborers : {labourer}");
+                    Console.WriteLine($"The number of passengers who are children : {child}");
+                    Console.WriteLine($"The number of passengers who are unemployed : {none}");
+                    Console.WriteLine($"The number of passengers who are maids : {maid}");
+                    Console.WriteLine($"The number of passengers who are Smiths : {smith}");
+                    Console.WriteLine($"The number of passengers who are Masons : {mason}");
+                    Console.WriteLine($"The number of passengers who are Bakers : {baker}");
+                    Console.WriteLine($"The number of passengers who are tanners : {tanner}");
+                    Console.WriteLine($"The number of passengers who are infants : {infant}");
+                    Console.WriteLine($"The number of passengers who are carpenters : {carpenter}");
+                    Console.WriteLine($"The number of passengers who are students : {student}");
+                    Console.WriteLine($"The number of passengers who are clerks : {clerk}");
+                    Console.WriteLine($"The number of passengers who are coachmen : {coachman}");
+                    Console.WriteLine($"The number of passengers who are immigrants : {immigrant}");
+                }
                 }
 
             }
@@ -137,8 +169,7 @@ namespace CA3_sem2
             }
             static void Exit()
             {
-
+                
             }
-        }
     }
 }
